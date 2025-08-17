@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.14.36327.8 d17.14
+VisualStudioVersion = 17.14.36327.8
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Stap10", "Stap10\Stap10.csproj", "{1134AF64-68DF-4AE8-8CC6-384CC00718DF}"
 	ProjectSection(ProjectDependencies) = postProject
@@ -13,6 +13,9 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure", "Infrastructure\Infrastructure.csproj", "{69432020-408E-4B7E-9214-6284557CEA2D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Services", "Services\Services.csproj", "{6F8EB299-DB26-496B-824A-870B8C87C62A}"
+	ProjectSection(ProjectDependencies) = postProject
+		{20AB3E71-D070-4417-92B5-DBD08474DE88} = {20AB3E71-D070-4417-92B5-DBD08474DE88}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

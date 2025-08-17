@@ -1,4 +1,6 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using Domain.Interfaces;
+using Microsoft.Extensions.Logging;
+using Services;
 
 namespace Stap10
 {
@@ -15,10 +17,14 @@ namespace Stap10
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
                     fonts.AddFont("Epilogue-Medium.ttf", "Epilogue");
                     fonts.AddFont("fontello.ttf", "Icons");
+                    fonts.AddFont("FontAwesomeSolid.otf", "AwesomeSolid");
                 });
 
+            builder.Services.AddHttpClient<IHoroscopeService, HoroscopeService>();
+            builder.Services.AddTransient<MainPage>();
+
 #if DEBUG
-    		builder.Logging.AddDebug();
+            builder.Logging.AddDebug();
 #endif
 
             return builder.Build();

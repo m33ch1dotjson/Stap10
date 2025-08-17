@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Stap10.Views.HoroscopeReadingPage"
+             Title="HoroscopeReadingPage">
+    <Grid BackgroundColor="#0D0118" RowDefinitions=".4*,Auto,5,.4*,.2*">
+
+        <Grid RowSpacing="-5">
+            <Image x:Name="image"
+                Aspect="AspectFill"
+                Source="{Binding Image}" />
+            <Rectangle Margin="-5">
+                <Rectangle.Fill>
+                    <LinearGradientBrush EndPoint="0,1">
+                        <GradientStop Offset="0.5" Color="Transparent" />
+                        <GradientStop Offset="1" Color="#0D0118" />
+                    </LinearGradientBrush>
+                </Rectangle.Fill>
+            </Rectangle>
+            <Label FontFamily="AwesomeSolid"
+                FontSize="18"
+                Text="&#xf060;"
+                TextColor="White"
+                 VerticalOptions="Start"
+                 HorizontalOptions="Start"
+                 Margin="20,40,0,0" >
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnBackTapped" />
+                </Label.GestureRecognizers>
+            </Label>
+            
+        </Grid>
+
+        <StackLayout Grid.Row="1" Padding="15,10">
+            <Label Text="{Binding ZodiacSign}"
+            FontSize="26"
+            FontAttributes="Bold"
+            TextColor="White"
+            HorizontalOptions="Center" />
+            <Label Text="Vandaag"
+            FontSize="16"
+            FontAttributes="Italic"
+            TextColor="#A3A3A4"
+            HorizontalOptions="Center" />
+        </StackLayout>
+
+        <ScrollView Grid.Row="2">
+            <Label
+                     Margin="19"
+                     FontSize="18"
+                     Text="{Binding FullText} "
+                     TextColor="White"
+                     VerticalOptions="Center"
+                     HorizontalTextAlignment="Start"
+                     LineHeight="1.5"/>
+        </ScrollView>
+    </Grid>
+</ContentPage>

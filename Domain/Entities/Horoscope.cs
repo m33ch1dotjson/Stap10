@@ -1,19 +1,33 @@
-﻿using System;
+﻿using Domain.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace Domain.Entities
 {
-    public class Horoscope
+    public sealed class Horoscope
     {
-        public string ZodiacSign { get; set; }
-        public string FullText { get; set; }
-        public DateOnly Date { get; set; }
-        public string Image { get; set; }
-        public string Name { get; set; }
-        public TimeSpan ReadTime { get; set; }
+        private readonly IHoroscopeService _service;
+        public string ZodiacSign { get; init; }
+        public string FullText { get; private set; } = string.Empty;
+        public string Image { get; init; }
 
+        public Horoscope(IHoroscopeService service, string zodiacSign, string image)
+        {
+            _service = service;
+            ZodiacSign = zodiacSign;
+            Image = image;
+        }
+
+        /// <summary>
+        /// Haalt de horoscoop op via de service en zet de FullText property.
+        /// </summary>
+        public async Task LoadAsync()
+        {
+            FullText = await _service.GetDailyAsync(ZodiacSign);
+        }
     }
 }

@@ -1,41 +1,64 @@
 ﻿using Domain.Entities;
+using Domain.Interfaces;
 using System.Collections.ObjectModel;
+using Stap10.Views;
 
 namespace Stap10
 {
     public partial class MainPage : ContentPage
     {
-        public ObservableCollection<Horoscope> Horoscopes {  get; set; }
-        public ObservableCollection<Horoscope> Horoscopes2 { get; set; }
+        private readonly IHoroscopeService _service;
 
-        public MainPage()
+        public ObservableCollection<Horoscope> Horoscopes { get; } = new();
+        public ObservableCollection<Horoscope> Horoscopes2 { get; } = new();
+
+        public MainPage(IHoroscopeService service)
         {
             InitializeComponent();
-            InitializeHoroscopes();
-            BindingContext = this; 
+            _service = service;
+            BindingContext = this;
+
+            _ = InitializeHoroscopesAsync();
         }
 
-        private void InitializeHoroscopes()
+        private async Task InitializeHoroscopesAsync()
         {
-            Horoscopes = new ObservableCollection<Horoscope>
-                {
-                    new Horoscope { ZodiacSign = "Ram", Image = "aries.png"},
-                    new Horoscope { ZodiacSign = "Stier", Image = "taurus.png"},
-                    new Horoscope { ZodiacSign = "Tweelingen", Image = "gemini.png"},
-                    new Horoscope { ZodiacSign = "Kreeft", Image = "cancer.png"},
-                    new Horoscope { ZodiacSign = "Leeuw", Image = "leo.png"},
-                    new Horoscope { ZodiacSign = "Maagd", Image = "virgo.png"},
-                    new Horoscope { ZodiacSign = "Weegschaal", Image = "libra.png"},
-                    new Horoscope { ZodiacSign = "Schorpioen", Image = "scorpio.png"},
-                    new Horoscope { ZodiacSign = "Boogschutter", Image = "sagittarius.png"},
-                    new Horoscope { ZodiacSign = "Steenbok", Image = "capricorn.png"},
-                    new Horoscope { ZodiacSign = "Waterman", Image = "aquarius.png"},
-                    new Horoscope { ZodiacSign = "Vissen", Image = "pisces.png"}
-                };
-            Horoscopes2 = new ObservableCollection<Horoscope>
-                {
+            var items = new[]
+            {
+                new Horoscope(_service, "aries", "aries.png"),
+                new Horoscope(_service, "taurus", "taurus.png"),
+                new Horoscope(_service, "gemini", "gemini.png"),
+                new Horoscope(_service, "cancer", "cancer.png"),
+                new Horoscope(_service, "leo", "leo.png"),
+                new Horoscope(_service, "virgo", "virgo.png"),
+                new Horoscope(_service, "libra", "libra.png"),
+                new Horoscope(_service, "scorpio", "scorpio.png"),
+                new Horoscope(_service, "sagittarius", "sagittarius.png"),
+                new Horoscope(_service, "capricorn", "capricorn.png"),
+                new Horoscope(_service, "aquarius", "aquarius.png"),
+                new Horoscope(_service, "pisces", "pisces.png")
+            };
 
-                } ;
+            foreach (var h in items)
+                Horoscopes.Add(h);
+
+            foreach (var h in Horoscopes)
+                await h.LoadAsync();
+        }
+
+        private async void OnCardTapped(object sender, TappedEventArgs e)
+        {
+            if (e.Parameter is Horoscope model)
+            {
+                Console.WriteLine($"Tapped: {model.ZodiacSign}");
+                await Shell.Current.GoToAsync(nameof(HoroscopeReadingPage),
+                    new Dictionary<string, object> { { "Model", model } });
+            }
+            else
+            {
+                Console.WriteLine("⚠️ e.Parameter was null!");
+            }
         }
     }
 }
+
