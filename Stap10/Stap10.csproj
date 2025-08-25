@@ -57,6 +57,11 @@
 		<MauiAsset Include="Resources\Raw\**" LogicalName="%(RecursiveDir)%(Filename)%(Extension)" />
 	</ItemGroup>
 
+    <ItemGroup>
+    <None Remove="Data\jft_quotes.json" />
+    <MauiAsset Include="Data\jft_quotes.json" LogicalName="jft_quotes.json" />
+  </ItemGroup>
+
 	<ItemGroup>
 		<!-- NuGet references pinned to .NET 8 stable -->
 		<PackageReference Include="Microsoft.Extensions.Http" Version="9.0.8" />

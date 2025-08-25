@@ -24,7 +24,10 @@ public partial class HoroscopeReadingPage : ContentPage
     protected override async void OnAppearing()
     {
         base.OnAppearing();
-        if (Model is not null && string.IsNullOrWhiteSpace(Model.FullText))
+
+        if (Model is null) return;
+
+        if (string.IsNullOrWhiteSpace(Model.FullText))
             await Model.LoadAsync();
     }
 

@@ -21,6 +21,7 @@ namespace Stap10
                 });
 
             builder.Services.AddHttpClient<IHoroscopeService, HoroscopeService>();
+            builder.Services.AddSingleton<IJustForTodayService, JustForTodayService>();
             builder.Services.AddTransient<MainPage>();
 
 #if DEBUG

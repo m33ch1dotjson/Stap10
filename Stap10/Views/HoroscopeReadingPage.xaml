@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Stap10.Views.HoroscopeReadingPage"
              Title="HoroscopeReadingPage">
-    <Grid BackgroundColor="#0D0118" RowDefinitions=".4*,Auto,5,.4*,.2*">
+    <Grid BackgroundColor="#0D0118" RowDefinitions=".4*,Auto,Auto,.4*,.2*">
 
         <Grid RowSpacing="-5">
             <Image x:Name="image"
