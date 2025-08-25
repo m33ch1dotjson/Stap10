@@ -63,7 +63,7 @@
                                     <Label Text="Vandaag"
                                    TextColor="White" />
                                     <Label FontSize="Large"
-                                   Text="{Binding ZodiacSign}"
+                                   Text="{Binding ZodiacSignNL}"
                                    TextColor="White" />
                                 </VerticalStackLayout>
 

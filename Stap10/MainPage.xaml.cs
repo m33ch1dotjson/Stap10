@@ -25,18 +25,18 @@ namespace Stap10
         {
             var items = new[]
             {
-                new Horoscope(_service, "aries", "aries.png"),
-                new Horoscope(_service, "taurus", "taurus.png"),
-                new Horoscope(_service, "gemini", "gemini.png"),
-                new Horoscope(_service, "cancer", "cancer.png"),
-                new Horoscope(_service, "leo", "leo.png"),
-                new Horoscope(_service, "virgo", "virgo.png"),
-                new Horoscope(_service, "libra", "libra.png"),
-                new Horoscope(_service, "scorpio", "scorpio.png"),
-                new Horoscope(_service, "sagittarius", "sagittarius.png"),
-                new Horoscope(_service, "capricorn", "capricorn.png"),
-                new Horoscope(_service, "aquarius", "aquarius.png"),
-                new Horoscope(_service, "pisces", "pisces.png")
+                new Horoscope(_service, "aries", "aries.png", "Ram"),
+                new Horoscope(_service, "taurus", "taurus.png", "Stier"),
+                new Horoscope(_service, "gemini", "gemini.png", "Tweelingen"),
+                new Horoscope(_service, "cancer", "cancer.png", "Kreeft"),
+                new Horoscope(_service, "leo", "leo.png", "Leeuw"),
+                new Horoscope(_service, "virgo", "virgo.png", "Maagd"),
+                new Horoscope(_service, "libra", "libra.png", "Weegschaal"),
+                new Horoscope(_service, "scorpio", "scorpio.png", "Schorpioen"),
+                new Horoscope(_service, "sagittarius", "sagittarius.png", "Boogschutter"),
+                new Horoscope(_service, "capricorn", "capricorn.png", "Steenbok"),
+                new Horoscope(_service, "aquarius", "aquarius.png", "Waterman"),
+                new Horoscope(_service, "pisces", "pisces.png", "Vissen")
             };
 
             foreach (var h in items)

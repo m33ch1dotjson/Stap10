@@ -12,14 +12,16 @@ namespace Domain.Entities
     {
         private readonly IHoroscopeService _service;
         public string ZodiacSign { get; init; }
+        public string ZodiacSignNL { get; init; }
         public string FullText { get; private set; } = string.Empty;
         public string Image { get; init; }
 
-        public Horoscope(IHoroscopeService service, string zodiacSign, string image)
+        public Horoscope(IHoroscopeService service, string zodiacSign, string image, string zodiacSignNL)
         {
             _service = service;
             ZodiacSign = zodiacSign;
             Image = image;
+            ZodiacSignNL = zodiacSignNL;
         }
 
         /// <summary>
