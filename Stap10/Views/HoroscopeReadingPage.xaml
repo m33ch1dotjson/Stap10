@@ -32,7 +32,7 @@
         </Grid>
 
         <StackLayout Grid.Row="1" Padding="15,10">
-            <Label Text="{Binding ZodiacSign}"
+            <Label Text="{Binding ZodiacSignNL}"
             FontSize="26"
             FontAttributes="Bold"
             TextColor="White"
@@ -48,7 +48,7 @@
             <Label
                      Margin="19"
                      FontSize="18"
-                     Text="{Binding FullText} "
+                     Text="{Binding FullText}"
                      TextColor="White"
                      VerticalOptions="Center"
                      HorizontalTextAlignment="Start"

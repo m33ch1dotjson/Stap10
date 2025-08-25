@@ -10,6 +10,8 @@ namespace Stap10
 
             Routing.RegisterRoute(nameof(HoroscopeReadingPage), typeof(HoroscopeReadingPage));
 
+            Routing.RegisterRoute(nameof(ReadingPage), typeof(ReadingPage));
+
             Shell.SetNavBarIsVisible(this, false);
         }
     }

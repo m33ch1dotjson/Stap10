@@ -50,8 +50,20 @@ namespace Stap10
         {
             if (e.Parameter is Horoscope model)
             {
-                Console.WriteLine($"Tapped: {model.ZodiacSign}");
                 await Shell.Current.GoToAsync(nameof(HoroscopeReadingPage),
+                    new Dictionary<string, object> { { "Model", model } });
+            }
+            else
+            {
+                Console.WriteLine("⚠️ e.Parameter was null!");
+            }
+        }
+
+        private async void OnCardTappedQuote(object sender, TappedEventArgs e)
+        {
+            if (e.Parameter is Horoscope model)
+            {
+                await Shell.Current.GoToAsync(nameof(ReadingPage),
                     new Dictionary<string, object> { { "Model", model } });
             }
             else
